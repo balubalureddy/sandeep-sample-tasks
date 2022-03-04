@@ -1,14 +1,14 @@
 <!-- select all Checkbox -->
 
 <mat-drawer-container class="example-container" hasBackdrop="true">
-  <mat-drawer #drawer mode="over" position="end" style="width: 20%;">
-    <div style="min-height: 90%;">
+  <mat-drawer #drawer mode="over" position="end" style="width: 20%">
+    <div style="min-height: 90%">
       <p>
         <mat-toolbar>
           <span>Add Letters</span>
         </mat-toolbar>
       </p>
-      <mat-form-field appearance="outline" style="margin-left: 10px;">
+      <mat-form-field appearance="outline" style="margin-left: 10px">
         <mat-label>Select an option</mat-label>
         <mat-select>
           <mat-option>None</mat-option>
@@ -17,50 +17,149 @@
           <mat-option value="option3">Option 3</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="example-full-width" style="width: 95%;margin-left: 10px;" appearance="outline">
-        <input type="text" matInput placeholder="Search">
-        <span class="material-icons" matSuffix style="cursor: pointer;">search</span>
+      <mat-form-field
+        class="example-full-width"
+        style="width: 95%; margin-left: 10px"
+        appearance="outline"
+      >
+        <input type="text" matInput placeholder="Search" />
+        <span class="material-icons" matSuffix style="cursor: pointer"
+          >search</span
+        >
       </mat-form-field>
       <ul class="group">
         <li class="item">
           <span>
-            <span><input type="checkbox" [(ngModel)]="isAllSelected" name="list_name"
-              (ngModelChange)="selectUnselectAll($event)" /></span>
-              <span >select All </span>
-            </span>
-          </li>
+            <span
+              ><input
+                type="checkbox"
+                [(ngModel)]="isAllSelected"
+                name="list_name"
+                (ngModelChange)="selectUnselectAll($event)"
+            /></span>
+            <span>select All </span>
+          </span>
+        </li>
       </ul>
       <ul class="group">
-          <!-- Parent Item -->
-                <li class="item" *ngFor="let item of dummydata">
-                  <div style="display:flex;align-items: center;" (click)="expandCollapse(item)">
-                    <!-- Parent Checkbox -->
-                    <span><input type="checkbox" [(ngModel)]="item.isSelected" name="list_name" value="{{item.templatefolderid}}"
-                      (ngModelChange)="parentCheck(item)" /></span>
-                    <span class="name" title="{{item.foldername}}">{{item.foldername}}</span>
-                    <!-- Parent Arrow -->
-                    <span>
-                      <!-- here we have used font awesome icons in the <i></i>. you have to use material icons  -->
-                      <i class="fas fa-angle-up" *ngIf="item.isClosed;else isCollapsed"></i>
-                      <ng-template #isCollapsed>
-                        <!-- here we have used font awesome icons in the <i></i>. you have to use material icons  -->
-                        <i class="fas fa-angle-down"></i>
-                      </ng-template>
-                    </span>
-                  </div>
-                  <div class="child-list" [hidden]="item.isClosed">
-                    <ul class="list-group level-two">
-                      <!-- Child Item -->
-                      <li class="item level-two" style="display: flex;align-items: center;" *ngFor="let itemChild of
-                      item.templates">
-                        <!-- Child Checkbox -->
-                        <input type="checkbox" [(ngModel)]="itemChild.isSelected" name="list_name_child"
-                        value="{{itemChild.FirmTemplateID}}" (ngModelChange)="childCheck(item,item.templates)" />
-                        <span class="name" title="{{itemChild.TemplateName}}">{{itemChild.TemplateName}}</span>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+        <!-- Parent Item -->
+        <li class="item" *ngFor="let item of dummydata">
+          <div
+            style="display: flex; align-items: center"
+            (click)="expandCollapse(item)"
+          >
+            <!-- Parent Checkbox -->
+            <span
+              ><input
+                type="checkbox"
+                [(ngModel)]="item.isSelected"
+                name="list_name"
+                value="{{ item.templatefolderid }}"
+                (ngModelChange)="parentCheck(item)"
+            /></span>
+            <span class="name" title="{{ item.foldername }}">{{
+              item.foldername
+            }}</span>
+            <!-- Parent Arrow -->
+            <span>
+              <!-- here we have used font awesome icons in the <i></i>. you have to use material icons  -->
+              <i
+                class="fas fa-angle-up"
+                *ngIf="item.isClosed; else isCollapsed"
+              ></i>
+              <ng-template #isCollapsed>
+                <!-- here we have used font awesome icons in the <i></i>. you have to use material icons  -->
+                <i class="fas fa-angle-down"></i>
+              </ng-template>
+            </span>
+          </div>
+          <div class="child-list" [hidden]="item.isClosed">
+            <ul class="list-group level-two">
+              <!-- Child Item -->
+              <li
+                class="item level-two"
+                style="display: flex; align-items: center"
+                *ngFor="let itemChild of item.templates"
+              >
+                <!-- Child Checkbox -->
+                <input
+                  type="checkbox"
+                  [(ngModel)]="itemChild.isSelected"
+                  name="list_name_child"
+                  value="{{ itemChild.FirmTemplateID }}"
+                  (ngModelChange)="childCheck(item, item.templates)"
+                />
+                <span class="name" title="{{ itemChild.TemplateName }}">{{
+                  itemChild.TemplateName
+                }}</span>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="group-list">
+        <li class="item-list">
+          <a
+            class="tempaltes-list"
+          >
+            <div class="left-side-label rename-set">
+              <div class="label-note padding-notes flex-box-left-right">
+                <div class="flex-box-col">
+                  <i class="material-icons drag-drop"></i>
+                  <span class="label-note-files" style="margin-right: 10px;">
+                    <i class="fas fa-angle-down"></i>
+                  </span>
+                  <span
+                    class="leadsheet-label ellipse"
+                    >kjhkjdfh</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="item-list">
+          <a
+            class="tempaltes-list"
+          >
+            <div class="left-side-label rename-set">
+              <div class="label-note padding-notes flex-box-left-right">
+                <div class="flex-box-col">
+                  <i class="material-icons drag-drop"></i>
+                  <span class="label-note-files" style="margin-right: 10px;">
+                    <i class="fas fa-angle-down"></i>
+                  </span>
+                  <span
+                    class="leadsheet-label ellipse"
+                    >kjhkjdfh</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="item-list">
+          <a
+            class="tempaltes-list"
+          >
+            <div class="left-side-label rename-set">
+              <div class="label-note padding-notes flex-box-left-right">
+                <div class="flex-box-col">
+                  <i class="material-icons drag-drop"></i>
+                  <span class="label-note-files" style="margin-right: 10px;">
+                    <i class="fas fa-angle-down"></i>
+                  </span>
+                  <span
+                    class="leadsheet-label ellipse"
+                    >kjhkjdfh</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
       </ul>
     </div>
     <mat-toolbar class="footer">
@@ -70,7 +169,10 @@
   <mat-drawer-content>
     <!--The content below is only a placeholder and can be replaced.-->
     <p>Please run and see the magic</p>
-    <p>Please understand the logic of the below list of folders and templates and then keep write same logic in your project.</p>
+    <p>
+      Please understand the logic of the below list of folders and templates and
+      then keep write same logic in your project.
+    </p>
     <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
   </mat-drawer-content>
 </mat-drawer-container>

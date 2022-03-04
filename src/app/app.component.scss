@@ -45,3 +45,20 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  .group-list{
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    .item-list{
+        list-style: none;
+        font-size: 12px;
+        position: relative;
+        display: block;
+        padding: 0.5rem 0.3rem;
+        margin-bottom: -1px;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+    }
+}
